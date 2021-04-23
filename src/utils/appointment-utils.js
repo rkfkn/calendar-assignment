@@ -19,10 +19,10 @@ export const generateRandomAppointments = (numberOfAppointments, daysRange) => {
             daysOffset = Math.ceil(Math.random() * daysRange)
             if (appointments.lenght === 0) break;
         } while (
-            // imamo rezervaciju tog dana, imamo već dvije rezervacije u tom tjednu
+            // loop while we have already a reservatrion on that day or we already have 2 reservation in that week.
             getAppointmentInDate(appointments, addDays(newDate, daysOffset))
             || getNumberOfAppointmentsInWeek(appointments, addDays(newDate, daysOffset)) >= 2
-            // je neradni dan
+            // is a working day
             || addDays(newDate, daysOffset).getDay() === 0
             || (addDays(newDate, daysOffset).getDay() === 6 && addDays(newDate, daysOffset).getDate() % 2 !== 0)
         )
@@ -33,9 +33,9 @@ export const generateRandomAppointments = (numberOfAppointments, daysRange) => {
         const { startTime, endTime, pause } = newDate.getDate() % 2 === 0 ? workingHours.morningShift : workingHours.afternoonShift
 
         do {
-            // 0 do 7 + startTime
+            // 0 to 7 + startTime
             hours = Math.floor(Math.random() * (endTime - startTime) + startTime)
-            // 0 ili 1 * 30 
+            // 0 or 1 * 30 
             minutes = Math.floor(Math.random() * 2) * 30;
         } while (hours === pause && minutes === 0)
 

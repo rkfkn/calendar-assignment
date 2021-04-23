@@ -18,13 +18,13 @@ const Calendar = () => {
 
   const createDayLabels = () => {
     const days = [
-      "Ponedjeljak",
-      "Utorak",
-      "Srijeda",
-      "Četvrtak",
-      "Petak",
-      "Subota",
-      "Nedjelja",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
     ];
     const currentDate = startOfWeek(date, { weekStartsOn: 1 });
     currentDate.setDate(currentDate.getDate() - 1);
@@ -69,31 +69,31 @@ const Calendar = () => {
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <h1>Kalendar radnog vremena ordinacije</h1>
+        <h1>Office hours calendar</h1>
         <p>
-          Moguće je odabrati do maksimalno 2 termina u tjednu, i do 1 termin u
-          danu.
+          It is possible to choose up to a maximum of 2 appointments per week,
+          and up to 1 appointment per day.
         </p>
-        <div className="color-meaning">
+        <div className="color-meani ng">
           <div>
             <div className="non-working"></div>
-            <span>Ne radi</span>
+            <span>Not working</span>
           </div>
           <div>
             <div className="working"></div>
-            <span>Slobodno, nije moguće rezervirati</span>
+            <span>Free, unable to reserve</span>
           </div>
           <div>
             <div className="working can-reserve"></div>
-            <span>Slobodno</span>
+            <span>Free</span>
           </div>
           <div>
             <div className="pause"></div>
-            <span>Pauza</span>
+            <span>Pause</span>
           </div>
           <div>
             <div className="reserved"></div>
-            <span>Rezervirano</span>
+            <span>Reserved</span>
           </div>
         </div>
         <h3 className="calendar-date">
